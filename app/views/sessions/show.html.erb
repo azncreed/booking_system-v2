@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Contact name:</strong>
+  <%= @session.contact_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @session.email %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @session.phone_number %>
+</p>
+
+<p>
+  <strong>Timeslot:</strong>
+  <%= @session.timeslot %>
+</p>
+
+<p>
+  <strong>Confirmation:</strong>
+  <%= @session.confirmation %>
+</p>
+
+<%= link_to 'Edit', edit_session_path(@session) %> |
+<%= link_to 'Back', sessions_path %>
