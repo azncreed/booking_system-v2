@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170705045747) do
+ActiveRecord::Schema.define(version: 20170705231235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "advisors", force: :cascade do |t|
+    t.string "name"
+    t.time "duration"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "timeslot_id"
+    t.index ["timeslot_id"], name: "index_advisors_on_timeslot_id"
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.string "contact_name"
@@ -29,11 +39,14 @@ ActiveRecord::Schema.define(version: 20170705045747) do
   create_table "timeslots", force: :cascade do |t|
     t.datetime "date"
     t.datetime "start_time"
-    t.string "advisor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "status", default: false
+    t.bigint "advisor_id"
+    t.index ["advisor_id"], name: "index_timeslots_on_advisor_id"
   end
 
+  add_foreign_key "advisors", "timeslots"
   add_foreign_key "sessions", "timeslots"
+  add_foreign_key "timeslots", "advisors"
 end
