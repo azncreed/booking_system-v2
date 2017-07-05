@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contact_name: MyString
+  email: MyString
+  phone_number: MyString
+  timeslot: one
+  confirmation: false
+
+two:
+  contact_name: MyString
+  email: MyString
+  phone_number: MyString
+  timeslot: two
+  confirmation: false
