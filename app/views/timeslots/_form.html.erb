@@ -1,0 +1,37 @@
+<%= form_with(model: timeslot, local: true) do |form| %>
+  <% if timeslot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(timeslot.errors.count, "error") %> prohibited this timeslot from being saved:</h2>
+
+      <ul>
+      <% timeslot.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :timeslot_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time %>
+    <%= form.time_select :start_time, id: :timeslot_start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :advisor %>
+    <%= form.select :advisor, id: :timeslot_advisor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
