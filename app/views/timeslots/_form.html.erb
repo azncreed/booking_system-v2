@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :advisor %>
-    <%= form.select :advisor, id: :timeslot_advisor %>
+    <%= form.select(:advisor_id, options_for_select([[@advisor_id]])) %>
   </div>
 
   <div class="field">

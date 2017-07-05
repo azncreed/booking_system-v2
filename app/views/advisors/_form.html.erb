@@ -1,0 +1,32 @@
+<%= form_with(model: advisor, local: true) do |form| %>
+  <% if advisor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(advisor.errors.count, "error") %> prohibited this advisor from being saved:</h2>
+
+      <ul>
+      <% advisor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :advisor_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duration %>
+    <%= form.time_select :duration, id: :advisor_duration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :advisor_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
