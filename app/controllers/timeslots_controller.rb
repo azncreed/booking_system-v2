@@ -14,7 +14,7 @@ class TimeslotsController < ApplicationController
 
   # GET /timeslots/new
   def new
-    @timeslot = Timeslot.new
+    @timeslot = current_user.timeslots.build
   end
 
   # GET /timeslots/1/edit
@@ -24,7 +24,7 @@ class TimeslotsController < ApplicationController
   # POST /timeslots
   # POST /timeslots.json
   def create
-    @timeslot = Timeslot.new(timeslot_params)
+    @timeslot = current_user.timeslots.build(timeslot_params)
 
     respond_to do |format|
       if @timeslot.save
