@@ -34,7 +34,10 @@
             <li><a href="#">Schedule confirmation</a></li>
           </ul>
         </li>
-        <% end %>
+
+         <% else %>
+        <li><%= link_to 'Log In', new_user_session_path %>
+         <% end %>
       </ul>
 
     </div><!-- /.navbar-collapse -->

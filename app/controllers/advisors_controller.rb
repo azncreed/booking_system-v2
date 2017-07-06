@@ -14,7 +14,7 @@ class AdvisorsController < ApplicationController
 
   # GET /advisors/new
   def new
-    @advisor = Advisor.new
+    @advisor = current_user.timeslots.build
   end
 
   # GET /advisors/1/edit
@@ -24,7 +24,7 @@ class AdvisorsController < ApplicationController
   # POST /advisors
   # POST /advisors.json
   def create
-    @advisor = Advisor.new(advisor_params)
+    @advisor = current_user.timeslots.build(advisor_params)
 
     respond_to do |format|
       if @advisor.save

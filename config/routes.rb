@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     root to: 'static_pages#home'
     match '/sessions/user', to: 'devise/sessions#create', via: :post
   end
+  
+  resource :users do
+    get 'timeslots/newBulk'
+  end
+
 
   devise_for :users
 
