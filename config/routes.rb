@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
 
   root 'pages#index'
 
+  devise_scope :user do 
+    root to: 'static_pages#home'
+    match '/sessions/user', to: 'devise/sessions#create', via: :post
+  end
+
+  devise_for :users
 
   resources :advisors
   resources :sessions
