@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Available Sessions</h1>
+<h1>View Upcoming Bookings</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -20,7 +20,7 @@
         <td><%= session.contact_name %></td>
         <td><%= session.email %></td>
         <td><%= session.phone_number %></td>
-        <td><%= session.timeslot %></td>
+        <td><%= session.timeslot_id %></td>
         <td><%= session.confirmation %></td>
         <td><%= link_to 'Show', session %></td>
         <td><%= link_to 'Edit', edit_session_path(session) %></td>
