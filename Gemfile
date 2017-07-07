@@ -8,6 +8,9 @@ end
 # Bootstrap gem for styling the application
 gem 'bootstrap-sass'
 
+# Recurring events for booking
+gem 'recurring_select', github:"RundownApp/recurring_select"
+
 # JQuery for rails
 gem 'jquery-rails'
 

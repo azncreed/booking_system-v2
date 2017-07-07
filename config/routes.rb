@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'timeslots/newBulk'
+
   root 'pages#index'
 
   devise_scope :user do 
@@ -7,9 +9,7 @@ Rails.application.routes.draw do
     match '/sessions/user', to: 'devise/sessions#create', via: :post
   end
   
-  resource :users do
-    get 'timeslots/newBulk'
-  end
+ 
 
 
   devise_for :users
