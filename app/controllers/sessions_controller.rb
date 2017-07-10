@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   before_action :set_session, only: [:show, :edit, :update, :destroy]
 
+  before_action :authenticate_user!
+
   # GET /sessions
   # GET /sessions.json
   def index
@@ -15,6 +17,7 @@ class SessionsController < ApplicationController
 
   # GET /sessions/new
   def new
+    # Find the right time slot that we're making a booking for
     @session = Session.new
   end
 

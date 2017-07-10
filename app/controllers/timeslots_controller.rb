@@ -10,6 +10,7 @@ class TimeslotsController < ApplicationController
   # GET /timeslots/1
   # GET /timeslots/1.json
   def show
+  
   end
 
   # GET /timeslots/new

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706234246) do
+ActiveRecord::Schema.define(version: 20170710002845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,16 +36,28 @@ ActiveRecord::Schema.define(version: 20170706234246) do
     t.index ["timeslot_id"], name: "index_sessions_on_timeslot_id"
   end
 
+  create_table "timeslot_bulks", force: :cascade do |t|
+    t.bigint "advisor_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.time "start_time"
+    t.string "end_time"
+    t.text "recurring"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["advisor_id"], name: "index_timeslot_bulks_on_advisor_id"
+  end
+
   create_table "timeslots", force: :cascade do |t|
     t.datetime "date"
     t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "status", default: false
     t.bigint "advisor_id"
     t.bigint "user_id"
     t.text "recurring"
     t.time "end_time"
+    t.integer "status", default: 0
     t.index ["advisor_id"], name: "index_timeslots_on_advisor_id"
     t.index ["user_id"], name: "index_timeslots_on_user_id"
   end
@@ -69,6 +81,7 @@ ActiveRecord::Schema.define(version: 20170706234246) do
 
   add_foreign_key "advisors", "timeslots"
   add_foreign_key "sessions", "timeslots"
+  add_foreign_key "timeslot_bulks", "advisors"
   add_foreign_key "timeslots", "advisors"
   add_foreign_key "timeslots", "users"
 end

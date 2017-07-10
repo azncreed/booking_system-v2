@@ -2,7 +2,12 @@ class Timeslot < ApplicationRecord
 	serialize :recurring, Hash 
 	has_many :bookings
 	has_many :advisors
-	belongs_to :user
+	#belongs_to :user
+
+  enum status: [ :free, :booked ] 
+
+
+
 
 	def recurring=(value)
     if value == "null"

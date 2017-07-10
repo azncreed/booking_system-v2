@@ -7,12 +7,19 @@ end
 
 # Bootstrap gem for styling the application
 gem 'bootstrap-sass'
+gem 'devise-bootstrap-views'
 
 # Recurring events for booking
 gem 'recurring_select', github:"RundownApp/recurring_select"
 
 # JQuery for rails
 gem 'jquery-rails'
+
+# View data in a table format in the console
+gem 'hirb'
+
+
+
 
 # User Authentication 
 gem 'devise'
