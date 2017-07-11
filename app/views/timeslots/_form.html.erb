@@ -25,11 +25,6 @@
     <%= form.label :advisor %>
     <%= collection_select( :timeslot, :advisor_id, Advisor.all, :id, :name, {}, { :multiple => false} ) %>
   </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.number_field :status %>
-  </div>
   
   <div class="actions">
     <%= form.submit %>

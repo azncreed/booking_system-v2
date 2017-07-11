@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170710002845) do
+ActiveRecord::Schema.define(version: 20170711002741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170710002845) do
     t.text "recurring"
     t.time "end_time"
     t.integer "status", default: 0
+    t.datetime "booked_at"
     t.index ["advisor_id"], name: "index_timeslots_on_advisor_id"
     t.index ["user_id"], name: "index_timeslots_on_user_id"
   end

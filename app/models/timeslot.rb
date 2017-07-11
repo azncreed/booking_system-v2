@@ -4,7 +4,17 @@ class Timeslot < ApplicationRecord
 	has_many :advisors
 	#belongs_to :user
 
-  enum status: [ :free, :booked ] 
+  enum status: [ :free, :booked ] do
+    event :book do
+      after do
+        self.booked_at = DateTime.now
+        self.save
+      end
+
+      transition :free => :booked 
+    end
+  end
+   
 
 
 

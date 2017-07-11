@@ -18,7 +18,8 @@ gem 'jquery-rails'
 # View data in a table format in the console
 gem 'hirb'
 
-
+# Change from one state to another (free time slot to booked time slot)
+gem 'stateful_enum'
 
 
 # User Authentication 
